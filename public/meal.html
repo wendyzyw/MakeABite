@@ -1,0 +1,245 @@
+
+<!-- Page -->
+<section class="page">
+    <div class="container">
+        <div class="page-wrap">
+            <div class="row" ng-controller="DishDetailController">
+                <!-- Left sidebar -->
+                <div class="col-sm-7">
+                    <!-- Dish section -->
+                    <section class="slide">
+                        <div class="panel pad-all">
+                            <img class="img-responsive panel-image" ng-src={{dish.image}} alt="">
+                            <h3 class="hr">{{dish.name}}</h3>
+                            <div class="rating" data-stars="{{dish.rating}}">
+                                <span ng-show="dish.comments.length>0">({{dish.rating}}/5)</span>
+                                <span ng-show="dish.comments.length==0">(no ratings)</span>
+                            </div>
+                            <p class="lead">{{dish.description}}</p>
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <p>Price: {{dish.price | currency}} </p>
+                                    <p>Cuisines: <span ng-repeat="cuisine in dish.restaurant.cuisines">{{cuisine}} </span> </p>
+									<p>Restaurant Types: <span ng-repeat="type in dish.restaurant.type">{{type}} </span> </p>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="panel panel-default panel-aside m-top-20">
+                                        <ul class="list-group list-group-aside">
+											<span ng-show="alreadySaved">Already saved to your favourites! <a ui-sref="app.profile.favourites">Check it out!</a></span>
+                                            <li class="list-group-item"><a ng-click="saveDish()" id="savedish"><i class="fa fa-block fa-heart"></i> Save to Favorite</a></li>
+                                            <li class="list-group-item"><a href="#"><i class="fa fa-block fa-exclamation-circle"></i> Report</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>Dish Features</h3>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 amenities">
+                                    <ul class="features-list">
+                                        <li>
+                                            <i class="fa fa-check" ng-show="dish.special.is_gf==1" style="color:green"></i>
+                                            <i class="fa fa-times" ng-show="dish.special.is_gf==0" style="color:red"></i>
+                                            <span>glutten free</span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-check" ng-show="dish.special.is_spicy==1" style="color:green"></i>
+                                            <i class="fa fa-times" ng-show="dish.special.is_spicy==0" style="color:red"></i>
+                                            <span>spicy?</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 col-sm-6 amenities">
+                                    <ul class="features-list">
+                                        <li>
+                                            <i class="fa fa-check" ng-show="dish.special.is_nf==1"></i>
+                                            <i class="fa fa-times" ng-show="dish.special.is_nf==0"></i>
+                                            <span>nuts free</span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-check" ng-show="dish.special.is_vegan==1"></i>
+                                            <i class="fa fa-times" ng-show="dish.special.is_vegan==0"></i>
+                                            <span>vegan?</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h3>Restaurant Amenities</h3>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 amenities" ng-repeat="item in dish.restaurant.highlights">
+                                    <ul class="features-list">
+                                        <li>
+                                            <i class="fa fa-check"></i>
+                                            <span> {{item}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Comment section -->
+                    <div class="widget card pad-all" ng-controller="CommentController">
+                        <!-- User comment -->
+                        <h3 class="user-comment-box">Comments ({{dish.comments.length}})</h3>
+                        <div class="comments-container">
+                            <ul class="comments-list">
+                                <p class="no-comment" ng-show="dish.comments.length==0">No comment</p>
+                                <div id="comment" class="comment-main-level" dir-paginate="comment in dish.comments | itemsPerPage: 5">
+                                    <div class="comment-avatar"><img src="img/avatar1.png" alt=""></div>
+                                    <div class="comment-box">
+                                        <div class="comment-head">
+                                            <span class="rating" data-stars="{{comment.rating}}"></span>
+                                            <div class="comment-head-text">
+                                                <span>by </span>
+                                                <h6 class="comment-name"><a href="#">{{comment.username}}</a></h6>
+                                                <span>{{comment.time}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="comment-content" ng-show="comment.content">
+                                            {{comment.content}}
+                                        </div>
+                                        <div style="color:#8c8c8c; font-style:italic" class="comment-content" ng-show="!comment.content">
+                                            No content.
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="row" ng-controller="PagerController">
+                            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
+                        </div>
+                        <!-- Comment box -->
+                        <h3 class="user-comment-box">Write a review </h3>
+                        <div class="row">
+                            <div class="widget-area no-padding blank">
+                                <div class="status-upload">
+                                    <form>
+                                        <textarea placeholder="Share your experience ..." ng-model="newComment.content"></textarea>
+                                        <div class="col-xs-8 col-sm-8 rating-radio">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rating" value="1.0" ng-model="newComment.rating"> 1
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rating" value="2.0" ng-model="newComment.rating"> 2
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rating" value="3.0" ng-model="newComment.rating"> 3
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rating" value="4.0" ng-model="newComment.rating"> 4
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rating" value="5.0" ng-model="newComment.rating"> 5
+                                            </label>
+                                        </div>
+                                        <a ng-click="submitComment()" type="submit" class="col-xs-4 col-sm-4 btn-success btn-submit-review ripple-effect green" id="compulsory-rating">
+                                            <i class="fa fa-share"></i> Submit
+                                        </a>
+                                    </form>
+                                    <div ng-show="showAlert" class="col-sm-12 rating-alert">* Rating is required. </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right sidebar -->
+                <div class="col-sm-5">
+                    <!-- Restaurant info -->
+                    <div class="widget card pad-all">
+                        <div class="advert row">
+                            <div class="logo-wrap col-sm-4">
+                                <img ng-src={{dish.restaurant.image}} alt="" class="img-responsive">
+                            </div>
+                            <div class="advert col-sm-8">
+                                <h3><b>{{dish.restaurant.name}}</b></h3>
+                                <p>{{dish.restaurant.location.address}}</p>
+                                <p>Contact: {{dish.restaurant.phone}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--opening hours-->
+                    <div class="widget card pad-all">
+                        <div class="advert row" id="opening hour">
+                            <div class="advert col-sm-12">
+                                <h3><b>Opening Hours </b><i class="fa fa-clock-o"></i></h3>
+                                <div id="timeDiv" class="{{timeStyle}}">{{timeInfo}}</div>
+                                <br></br>
+                                <div id="Monday" class="dateTime">
+                                    <div class="day">Mon: </div>
+                                    <div class="time"> {{dish.restaurant.time.mon}}</div>
+                                </div>
+                                <br>
+                                <div id="Tuesday" class="dateTime">
+                                    <div class="day">Tue: </div>
+                                    <div class="time"> {{dish.restaurant.time.tue}}</div>
+                                </div>
+                                <br>
+                                <div id="Wednesday" class="dateTime">
+                                    <div class="day">Wed: </div>
+                                    <div class="time"> {{dish.restaurant.time.wed}}</div>
+                                </div>
+                                <br>
+                                <div id="Thursday" class="dateTime">
+                                    <div class="day">Thu: </div>
+                                    <div class="time"> {{dish.restaurant.time.thu}}</div>
+                                </div>
+                                <br>
+                                <div id="Friday" class="dateTime">
+                                    <div class="day">Fri: </div>
+                                    <div class="time"> {{dish.restaurant.time.fri}}</div>
+                                </div>
+                                <br>
+                                <div id="Saturday" class="dateTime">
+                                    <div class="day">Sat: </div>
+                                    <div class="time"> {{dish.restaurant.time.sat}}</div>
+                                </div>
+                                <br>
+                                <div id="Sunday" class="dateTime">
+                                    <div class="day">Sun: </div>
+                                    <div class="time"> {{dish.restaurant.time.sun}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Map -->
+                    <div class="widget card pad-all">
+                        <div id="map"></div>
+                    </div>
+                    <!-- Dishes you may also like -->
+					<!--search for dishes in the same restaurant --> 
+                    <div class="row mar-top side-card">
+                        <div class="col-sm-12">
+                            <hr class="mBtm-50 mTop-30" data-symbol="Dishes you may also like">
+                        </div>
+                        <div class="card-row">
+                            <div class="col-sm-6" ng-repeat="dish in randDishes">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img class="img-responsive" ng-src={{dish.image}} alt="">
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="listingInfo">
+                                            <div class="vcard">
+                                                <h2><a ng-click="goMeal(dish._id)" class="name" style="cursor: pointer">{{dish.name}}</a></h2>
+                                                <p class="listingLocation"><i class="fa fa-smile-o"></i>{{dish.category}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="card-action">-->
+                                        <!--<a class="save"><i class="fa fa-heart-o"></i><span>Save</span></a>-->
+                                    <!--</div>-->
+                                    <!-- end. Card actions -->
+                                </div>
+                                <!-- /.card -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of page -->
+<script type>
+    $(document).ready(function(){ $("[data-toggle=tooltip]").tooltip(); });
+</script>

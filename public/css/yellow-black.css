@@ -1,0 +1,67 @@
+a:hover {
+	color:#458386;
+}
+
+.navigation li:before {
+content:'';
+background:#458386;
+}
+
+.sep1 {
+background:#458386;
+}
+
+.sep2 {
+background:#458386;
+}
+
+.np-controls a:hover i {
+color:#458386;
+}
+
+#filter-list li:hover {
+background:#458386;
+}
+
+#filter-list li.active {
+background:#458386;
+}
+
+.skills-bg span {
+background:#458386;
+}
+
+.services-info ul li:hover {
+background:#458386;
+}
+
+.link-post {
+background:#458386;
+}
+
+.quote-post blockquote {
+color:#458386;
+}
+
+.contact-form button {
+background:#458386;
+}
+
+.contact-form button:hover {
+color:#458386;
+}
+
+.social li a:hover {
+color:#458386;
+}
+
+.reply {
+background:#458386;
+}
+
+.reply:hover {
+color:#458386;
+}
+
+
+

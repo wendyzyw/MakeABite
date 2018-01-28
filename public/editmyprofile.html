@@ -1,0 +1,127 @@
+<link href="css/profile.css" rel="stylesheet">
+<link rel="stylesheet" href="css/flexslider.css" />
+<link rel="stylesheet" href="css/nivo-lightbox.css" />
+<link rel="stylesheet" href="css/default.css" />
+<link rel="stylesheet" href="css/animate.css" />
+<link rel="stylesheet" type="text/css" href="css/yellow-black.css" media="screen" />
+<div class="wrapper" ng-controller="UserController">
+    <section class="user-page">
+        <!-- <div class="profile-info space-sm"> -->
+        <div class="container" ng-init="">
+            <div class="row">
+                <!-- <div class="m-top-30"> -->
+                <div class="col-md-3 col-sm-12 col-xs-12 l-content">
+                    <div class="profile-pic">
+                        <!--<div class="pic-bg"><img ng-src="{{user.img}}" class="img-responsive" alt="" /></div>-->
+                        <div class="pic-bg">
+                            <img id="profileimage" ng-src="{{user.img}}" class="img-responsive" alt="" />
+                            
+                            <div id="profileModal" class="profilemodal">
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <!--<div>-->
+                                        <span class="close">&times;</span>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="profilePhotos">
+                                           <img src="img/avatar1.png" alt="" class="img-responsive image" ng-click="new_img = 'img/avatar1.png'">
+                                           <img src="img/avatar2.png" alt="" class="img-responsive image" ng-click="new_img = 'img/avatar2.png'">
+                                           <img src="img/avatar3.png" alt="" class="img-responsive image" ng-click="new_img = 'img/avatar3.png'">
+                                           <img src="img/avatar4.png" alt="" class="img-responsive image" ng-click="new_img = 'img/avatar4.png'">
+                                           <img src="img/avatar5.png" alt="" class="img-responsive image" ng-click="new_img = 'img/avatar5.png'">
+                                           <img src="img/avatar6.png" alt="" class="img-responsive image" ng-click="new_img = 'img/avatar6.png'">
+                                           <img src="img/avatar7.png" alt="" class="img-responsive image" ng-click="new_img = 'img/avatar7.png'">
+                                           <img src="img/avatar8.png" alt="" class="img-responsive image" ng-click="new_img = 'img/avatar8.png'">
+                                       </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button href= "javascript:history.back()" ng-click="saveProfileImg()" class="btn btn-default save">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <nav>
+                        <ul class="navigation">
+                            <li id="personal"><a ui-sref="app.profile">My Profile <i class="fa fa-user"></i></a></li>
+                            <li><a ui-sref="app.profile.favourites">My Favourites <i class="fa fa-star "></i></a></li>
+                            <li><a ui-sref="app.profile.preference">My Preference <i class="fa fa-heart"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!--inject different html files-->
+                <div class="col-md-9 col-sm-12 col-xs-12 r-content" id="tohere">
+                    <div class="row">
+                        <div class="profile">
+                            <h2>Hello, I am <span>{{user.name}}</span><br></h2>
+                            <div class="sep2"></div>
+                            <div class="personal-info col-md-8 no-padding" style="overflow-y: hidden">
+                                <h4>Personal Info</h4>
+                                <div class="sep2"></div>
+                                <form ng-app="myApp">
+                                    <ul>
+                                        <li class="infoitems">
+                                            <!--<div class="p-info"><em class="tag">name</em><span><input type="text" ng-model="user.newname" ng-init="user.newname='{{user.name}}'" />{{user.name}}{{user.newname}}</span></div>-->
+                                            <div class="p-info"><em class="tag">name</em><span><input type="text" ng-model="name" value={{name}}/></span></div>
+                                        </li>
+                                        <li class="infoitems">
+                                            <div class="p-info"><em class="tag">date of birth</em><span><input type="text" ng-model="dob" value={{dob}}></span></div>
+                                        </li>
+                                        <li class="infoitems">
+                                            <div class="p-info"><em class="tag">e-mail</em><span><input type="text" ng-model="email" value={{email}}></span></div>
+                                        </li>
+                                        <li class="infoitems">
+                                            <div class="p-info"><em class="tag">address</em><span><input type="text" ng-model="address"  value={{address}}></span></div>
+                                        </li>
+                                        <li class="infoitems">
+                                            <div class="p-info"><em class="tag">phone</em><span><input type="text" ng-model="phone" value={{phone}}></span></div>
+                                        </li>
+                                    </ul>
+                                </form>
+                                <!--<div><button type="button" class="edit">edit</button></div>-->
+                                <div>
+                                    <!--<a ng-click="saveProfile()" ui-sref="app.profile" type="submit" class="col-xs-4 col-sm-4 button">
+                                        Save
+                                    </a>-->
+									<button type="button" ng-click="saveProfile()" ui-sref="app.profile" class="btn btn-default">Save Changes</button>
+                                    <!--<a href="javascript:history.back()" class="col-xs-4 col-sm-4 button">
+                                        Cancel
+                                    </a>-->
+									<button type="button" href="javascript:history.back()" class="btn btn-default">Cancel</button>
+									<button type="button" id="changeBtn" class="btn btn-default change_btn">Change Profile Picture</button>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--</div>-->
+            </div>
+        </div>
+        <!-- </div> -->
+    </section>
+</div>
+
+
+<script>
+    $("#profileimage").click(function(e) {
+        console.log("here");
+        $("#changeBtn").click();
+    });
+
+    var profilepopup = document.getElementById('profileModal');
+    var imgSave = profilepopup.getElementsByClassName('save')[0];
+    var imgClose = profilepopup.getElementsByClassName("close")[0];
+
+    $("#changeBtn").click(function(e){
+        profilepopup.style.display = "block";
+    })
+
+    imgClose.onclick = function() {
+        profilepopup.style.display = "none";
+    }
+    imgSave.onclick = function() {
+        profilepopup.style.display = "none";
+    }
+</script>

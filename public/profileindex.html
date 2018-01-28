@@ -1,0 +1,33 @@
+<link href="css/profile.css" rel="stylesheet">
+<link rel="stylesheet" href="css/flexslider.css" />
+<link rel="stylesheet" href="css/nivo-lightbox.css" />
+<link rel="stylesheet" href="css/default.css" />
+<link rel="stylesheet" href="css/animate.css" />
+<link rel="stylesheet" type="text/css" href="css/yellow-black.css" media="screen" />
+<div class="wrapper" ng-controller="UserController" ">
+    <section class="user-page">
+        <!-- <div class="profile-info space-sm"> -->
+        <div class="container" ng-init="">
+            <div class="row">
+                <!-- <div class="m-top-30"> -->
+                <div class="col-md-3 col-sm-12 col-xs-12 l-content">
+                    <div class="profile-pic">
+                        <div class="pic-bg"><img ng-src="{{user.img}}" class="img-responsive" alt="" /></div>
+                    </div>
+                    <nav>
+                        <ul class="navigation">
+                            <li id="personal"><a ui-sref="app.profile">My Profile <i class="fa fa-user"></i></a></li>
+                            <li><a ui-sref="app.profile.favourites">My Favourites <i class="fa fa-star "></i></a></li>
+                            <li><a ui-sref="app.profile.preference">My Preference <i class="fa fa-heart"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!--inject different html files-->
+                <div ui-view="profilecontent">
+                </div>
+                <!--</div>-->
+            </div>
+        </div>
+        <!-- </div> -->
+    </section>
+</div>

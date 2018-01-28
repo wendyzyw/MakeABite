@@ -1,0 +1,53 @@
+<!-- Header -->
+<header>
+    <!-- Navbar -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top pos-relative" ng-app="makeABiteApp">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="index.html">MakeABite</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" ng-controller = "LoginController">
+					<li>
+                        <a class="page-scroll" ui-sref="app.profile" ng-model = signinuser>{{displayname}}</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#">Login</a>
+                    </li>
+                </ul>
+                <div class="col-sm-6 col-md-6 pull-right" ng-controller="DemoCtrl as ctrl">
+                    <form class="navbar-form" role="search" name="searchForm" novalidate>
+                        <div class="input-group">
+                            <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" md-require-match=false placeholder="Search for your dishes in mind">
+                                <md-item-template>
+                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                    No states matching "{{ctrl.searchText}}" were found.
+                                    <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
+                                </md-not-found>
+                            </md-autocomplete>
+                            <!--<input type="text" class="form-control" placeholder="Search for meals..." name="dishsearch" id="srch-term" ng-model="keywords">-->
+                            <div class="input-group-btn" ng-controller="SearchController">
+                                <button class="btn btn-default" type="submit" ui-sref="app.search({q: ctrl.searchText})" ng-click="searchDishes(ctrl.searchText)"><i class="glyphicon glyphicon-search" style="height: 25px; width: 25px"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- /Navbar -->
+</header>

@@ -1,0 +1,702 @@
+/*******************************
+
+*  COLORS AND BTN'S
+
+* *******************************/
+
+.widget .btn {
+    padding: 10px 14px;
+    min-width: 88px;
+    outline: 0;
+    outline-offset: 0;
+    border: 0;
+    border-radius: 0;
+    color: rgba(255, 255, 255, .87);
+    letter-spacing: inherit;
+    font-weight: 300;
+    font-size: 16px;
+    font-family: Roboto, 'Helvetica Neue, Helvetica, Arial', sans-serif;
+    line-height: 1.1;
+    -webkit-transition: all .15s ease-in-out;
+    -moz-transition: all .15s ease-in-out;
+    -o-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+}
+
+.btn-default,
+.btn-link {
+    color: rgba(0, 0, 0, .87);
+}
+
+.btn-raised {
+    box-shadow: 0 2px 3px -1px #DCDCDC;
+}
+
+.btn-raised.active,
+.btn-raised.active:focus,
+.btn-raised:active,
+.btn-raised:active:focus,
+.btn-raised:focus {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+}
+
+.btn.btn-circle {
+    padding: 0;
+    border-radius: 50%;
+}
+
+.btn-default.active,
+.btn-default:active,
+.btn-default:hover,
+.dropdown-toggle.btn-default.active,
+.dropdown-toggle.btn-default:active,
+.dropdown-toggle.btn-default:hover {
+    background-color: #e5e5e5;
+}
+
+.btn-default:focus,
+.dropdown-toggle.btn-default:focus {
+    background-color: #ccc;
+}
+
+.btn-default .ink,
+.dropdown-toggle.btn-default .ink {
+    background-color: #b8b8b8;
+}
+
+.btn-flat.btn-default {
+    background-color: transparent;
+    color: #212121;
+}
+
+.btn-flat.btn-default:hover {
+    background-color: #e5e5e5;
+    color: #141414;
+}
+
+.btn-flat.btn-default.active,
+.btn-flat.btn-default:active {
+    background-color: #ccc;
+    color: #020202;
+}
+
+.btn-flat.btn-default:focus {
+    background-color: #ccc;
+    color: #000;
+}
+
+.btn-primary,
+.dropdown-toggle.btn-primary {
+    background-color: #3F51B5;
+}
+
+.btn-primary.active,
+.btn-primary:active,
+.btn-primary:hover,
+.dropdown-toggle.btn-primary.active,
+.dropdown-toggle.btn-primary:active,
+.dropdown-toggle.btn-primary:hover {
+    background-color: #4e6cef;
+}
+
+.btn-primary:focus,
+.dropdown-toggle.btn-primary:focus {
+    background-color: #455ede;
+}
+
+.btn-primary .ink,
+.dropdown-toggle.btn-primary .ink {
+    background-color: #3b50ce;
+}
+
+.btn-flat.btn-primary {
+    background-color: transparent;
+    color: #5677fc;
+}
+
+.btn-flat.btn-primary:hover {
+    background-color: #e5e5e5;
+    color: #4e6cef;
+}
+
+.btn-flat.btn-primary.active,
+.btn-flat.btn-primary:active {
+    background-color: #ccc;
+    color: #455ede;
+}
+
+.btn-flat.btn-primary:focus {
+    background-color: #ccc;
+    color: #3b50ce;
+}
+
+.btn-success,
+.dropdown-toggle.btn-success {
+    background-color: #77C84E;
+}
+
+.btn-success:hover,
+.dropdown-toggle.btn-success:hover {
+    background-color: #60b84b;
+}
+
+.btn-success.active,
+.btn-success:active,
+.dropdown-toggle.btn-success.active,
+.dropdown-toggle.btn-success:active {
+    background-color: #0a8f08;
+}
+
+.btn-success:focus,
+.dropdown-toggle.btn-success:focus {
+    background-color: #0a7e07;
+}
+
+.btn-success .ink,
+.dropdown-toggle.btn-success .ink {
+    background-color: #056f00;
+}
+
+.btn-flat.btn-success {
+    background-color: transparent;
+    color: #259b24;
+}
+
+.btn-flat.btn-success:hover {
+    background-color: #e5e5e5;
+    color: #0a8f08;
+}
+
+.btn-flat.btn-success.active,
+.btn-flat.btn-success:active {
+    background-color: #ccc;
+    color: #0a7e07;
+}
+
+.btn-flat.btn-success:focus {
+    background-color: #ccc;
+    color: #056f00;
+}
+
+.btn-info,
+.dropdown-toggle.btn-info {
+    background-color: #03a9f4;
+}
+
+.btn-info.active,
+.btn-info:active,
+.btn-info:hover,
+.dropdown-toggle.btn-info.active,
+.dropdown-toggle.btn-info:active,
+.dropdown-toggle.btn-info:hover {
+    background-color: #039be5;
+}
+
+.btn-info:focus,
+.dropdown-toggle.btn-info:focus {
+    background-color: #0288d1;
+}
+
+.btn-info .ink,
+.dropdown-toggle.btn-info .ink {
+    background-color: #0277bd;
+}
+
+.btn-flat.btn-info {
+    background-color: transparent;
+    color: #03a9f4;
+}
+
+.btn-flat.btn-info:hover {
+    background-color: #e5e5e5;
+    color: #039be5;
+}
+
+.btn-flat.btn-info.active,
+.btn-flat.btn-info:active {
+    background-color: #ccc;
+    color: #0288d1;
+}
+
+.btn-flat.btn-info:focus {
+    background-color: #ccc;
+    color: #0277bd;
+}
+
+.btn-warning,
+.dropdown-toggle.btn-warning {
+    background-color: #ffc107;
+}
+
+.btn-warning.active,
+.btn-warning:active,
+.btn-warning:hover,
+.dropdown-toggle.btn-warning.active,
+.dropdown-toggle.btn-warning:active,
+.dropdown-toggle.btn-warning:hover {
+    background-color: #ffb300;
+}
+
+.btn-warning:focus,
+.dropdown-toggle.btn-warning:focus {
+    background-color: #ffa000;
+}
+
+.btn-warning .ink,
+.dropdown-toggle.btn-warning .ink {
+    background-color: #ff8f00;
+}
+
+.btn-flat.btn-warning {
+    background-color: transparent;
+    color: #ffc107;
+}
+
+.btn-flat.btn-warning:hover {
+    background-color: #e5e5e5;
+    color: #ffb300;
+}
+
+.btn-flat.btn-warning.active,
+.btn-flat.btn-warning:active {
+    background-color: #ccc;
+    color: #ffa000;
+}
+
+.btn-flat.btn-warning:focus {
+    background-color: #ccc;
+    color: #ff8f00;
+}
+
+.btn-danger,
+.dropdown-toggle.btn-danger {
+    background-color: #e91e63;
+}
+
+.btn-danger.active,
+.btn-danger:active,
+.btn-danger:hover,
+.dropdown-toggle.btn-danger.active,
+.dropdown-toggle.btn-danger:active,
+.dropdown-toggle.btn-danger:hover {
+    background-color: #e20269;
+}
+
+.btn-danger:focus,
+.dropdown-toggle.btn-danger:focus {
+    background-color: #BD0F5F;
+}
+
+.btn-danger .ink,
+.dropdown-toggle.btn-danger .ink {
+    background-color: #d84315;
+}
+
+.btn-flat.btn-danger {
+    background-color: transparent;
+    color: #ff5722;
+}
+
+.btn-flat.btn-danger:hover {
+    background-color: #e5e5e5;
+    color: #f4511e;
+}
+
+.btn-flat.btn-danger.active,
+.btn-flat.btn-danger:active {
+    background-color: #ccc;
+    color: #e64a19;
+}
+
+.btn-flat.btn-danger:focus {
+    background-color: #ccc;
+    color: #d84315;
+}
+
+.btn-group-lg>.btn,
+.btn-lg {
+    margin-top: 1px;
+    padding: 10px 16px;
+    min-width: 122px;
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+.btn-group-sm>.btn,
+.btn-sm {
+    padding: 4px 12px;
+    min-width: 64px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.btn-group-xs>.btn,
+.btn-xs {
+    padding: 2px 10px;
+    min-width: 46px;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.btn-circle {
+    min-width: 56px;
+    width: 56px;
+    height: 56px;
+}
+
+.btn-circle span {
+    line-height: 56px;
+}
+
+.btn-circle.btn-lg {
+    min-width: 78px;
+    width: 78px;
+    height: 78px;
+}
+
+.btn-circle.btn-lg span {
+    line-height: 78px;
+}
+
+.btn-circle.btn-sm {
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+.btn-circle.btn-sm span {
+    line-height: 40px;
+}
+
+.btn-circle.btn-xs {
+    min-width: 30px;
+    width: 30px;
+    height: 30px;
+}
+
+.btn-circle.btn-xs span {
+    line-height: 30px;
+}
+
+.btn-group .btn {
+    border-radius: 2px;
+}
+
+.btn-group .btn+.btn,
+.btn-group .btn+.btn-group,
+.btn-group .btn-group+.btn,
+.btn-group .btn-group+.btn-group {
+    margin-left: 0;
+}
+
+.btn-group-vertical>.btn:hover,
+.btn-group>.btn:hover {
+    z-index: 0;
+}
+
+.btn-group-vertical>.btn.active:hover,
+.btn-group-vertical>.btn:active:hover,
+.btn-group-vertical>.btn:focus:hover,
+.btn-group>.btn.active:hover,
+.btn-group>.btn:active:hover,
+.btn-group>.btn:focus:hover {
+    z-index: 2;
+}
+
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.ink {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 1;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    pointer-events: none;
+}
+
+.ink.animate {
+    -webkit-animation: ripple .5s linear;
+    animation: ripple .5s linear;
+}
+
+
+/*******************************
+
+*  CARDS
+
+* *******************************/
+
+.card {
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    box-shadow: 0 2px 3px -1px #DCDCDC;
+}
+
+.card-wraped {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.card {
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    background-color: #fff;
+    background-clip: padding-box;
+}
+
+.card span.card-title {
+    color: #fff;
+    font-weight: 300;
+    font-size: 21px;
+}
+
+.card .card-image {
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.card .card-image img {
+    position: initial;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    border-radius: 2px 2px 0 0;
+    background-clip: padding-box;
+    opacity: .9;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.card .card-image .card-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 15px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.card .card-content {
+    position: relative;
+    box-sizing: border-box;
+    padding: 15px;
+    border-radius: 0 0 2px 2px;
+    background-clip: padding-box;
+}
+
+.card .card-content p {
+    margin: 0 0 10px;
+}
+
+.card .card-content span.card-title {
+    line-height: 48px;
+}
+
+.card .card-price {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 2px 5px;
+    background-color: #fff;
+    box-shadow: 1px 2px 1px rgba(94, 93, 99, .08), 0 1px 2px rgba(61, 60, 66, .12);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 11px;
+}
+
+.card .card-action {
+    padding: 12px 15px;
+    border-top: 1px solid rgba(160, 160, 160, .2);
+}
+
+.side-card .card-action {
+    padding: 8px 15px;
+}
+
+.card .card-action a {
+    margin-right: 5px;
+    color: #3b3b3b;
+    font-size: 12px;
+    -webkit-transition: color .3s ease;
+    transition: color .3s ease;
+}
+
+.card .card-action a i {
+    margin-right: 2px;
+}
+
+.card-action a {
+    width: auto;
+    text-align: right;
+}
+
+.card-action a.save i {
+    color: #da2a66;
+}
+
+.card .card-action a:hover {
+    color: #da2a66;
+    text-decoration: none;
+}
+
+.card .card-action a span {
+    color: #333f48;
+}
+
+.card.card-horizontal .card-image {
+    display: block;
+    height: 230px;
+}
+
+.card.card-horizontal .card-content {
+    width: 100%;
+    height: 230px;
+}
+
+.card.card-horizontal .card-content .card-action {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.card.card-horizontal .card-content .listingInfo {
+    display: table-cell;
+    height: 150px;
+    /*vertical-align: middle;*/
+}
+
+.card.card-horizontal .card-content .priceText {
+    margin-bottom: 0;
+    color: #0c0b0c;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.card.card-horizontal .card-content .vcard h2 {
+    margin-top: 8px;
+    /*margin: 8px 0 15px;*/
+    font-size: 20px;
+}
+
+.card-row:after {
+    display: table;
+    content: "";
+    clear: both;
+}
+
+.priceText {
+    margin-right: 130px;
+}
+
+.vcard {
+    min-height: 40px;
+}
+
+.vcard h2 {
+    margin: 0 0 15px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.listingLocation {
+    font-size: 13px;
+}
+
+.listingLocation i {
+    padding-right: 8px;
+}
+
+.listingInfo {
+    position: relative;
+}
+
+.listingInfo {
+    clear: both;
+    padding: 0;
+}
+
+.listerName {
+    position: absolute;
+    top: -42px;
+    right: 0;
+    float: right;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.listerName a.agent-wrapper {
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.listerName img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 2px 3px -1px #DCDCDC;
+}
+
+.listerName figcaption {
+    position: absolute;
+    left: -66px;
+    padding-top: 4px;
+    width: 160px;
+    text-align: center;
+}
+
+.listingInfo .propertyStats {
+    margin-top: 3px;
+    margin-bottom: 0;
+    min-height: 25px;
+}
+
+
+/*******************************
+
+*  ADVERT (RESTAURANT INFO)
+
+* *******************************/
+
+.advert .logo-wrap img {
+    margin: auto;
+    margin-top: 15px;
+    vertical-align: initial;
+}
+
+.advert h3 {
+    margin-top: 10px;
+    font-size: 17px;
+}
+
+.advert p {
+    margin: 5px 0;
+}
+
+.agents-table p {
+    margin: 0 0 8px;
+}
+
+ul.features-list li {
+    padding: 7px 0;
+}
+
+ul.features-list li i.fa.fa-times {
+    color: red;
+}
+
+ul.features-list li i.fa.fa-check {
+    color: #1bde73;
+}

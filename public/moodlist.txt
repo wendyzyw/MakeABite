@@ -1,0 +1,15 @@
+happy: strawberry / pizza / pack+banquet+family+deluxe
+
+excited: kimchi / avocado / pineapple
+
+annoyed: ice / fried chicken / chips
+
+gloomy: waffle
+
+uncomfortable: soup / porridge
+
+angry: matcha
+
+sleepy: mint
+
+relaxed: sushi / burger / cupcakes

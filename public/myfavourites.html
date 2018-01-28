@@ -1,0 +1,53 @@
+<div class="col-md-9 col-sm-12 col-xs-12 r-content">
+    <div class="row">
+		<div style="padding: 20px; " ng-show="!hasFav">
+				<h4>Your favourites list is empty! Take a loog at our <a ui-sref="app.search({q:'', sort: 'rating', limit: 100})"><b>top dishes</b></a>!</h4>
+		</div>
+        <div class="col-sm-4" ng-repeat="dish in user.favourites"  ng-show="hasFav">
+            <div class="card">
+                <div class="card-image" style="position: relative">
+                    
+                    <!--<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>-->
+						
+						<a> <img class="img-responsive" ng-src="{{dish.image}}" alt=""  ui-sref="app.dishdetail({id: dish._id})">
+						<i class="fa fa-close close" ng-click="deleteFav(dish)" style="position: absolute; display: block; z-index: 100; top: 2px;
+						right: 2px;"></i></img></a> 
+                </div>
+                <!--<div>-->
+                <!--</div>-->
+                <div class="card-content">
+                    <div class="listingInfo">
+                        <div class="propertyStats">
+                            <p class="priceText">${{(dish.price/100).toFixed(2)}}</p>
+                        </div>
+                        <div class="vcard">
+                            <h2><a ui-sref="app.dishdetail({id: dish._id})" class="name">{{dish.name}}</a></h2>
+                            <p class="listingLocation"><i class="fa fa-map-o"></i>{{dish.restaurant.name}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <i target="new_blank" data-toggle="tooltip" data-placement="top"class="fa fa-thumbs-o-up"></i><span>{{dish.likes}}</span></i>
+                </div>
+                <!-- end. Card actions -->
+            </div>
+            <!--end: Card -->
+        </div>
+    </div>
+
+    <div class="row" ng-controller="PagerController">
+        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
+    </div>
+    <!--<nav>-->
+        <!--<ul class="pagination pagination-lg">-->
+            <!--<li><a href="#" aria-label="Previous" class="btn btn-raised ripple-effect btn-default"><span aria-hidden="true">«</span></a></li>-->
+            <!--<li><a href="#" class="btn btn-raised ripple-effect btn-default">1</a></li>-->
+            <!--<li><a href="#" class="btn btn-raised ripple-effect btn-default">2</a></li>-->
+            <!--<li><a href="#" class="btn btn-raised ripple-effect btn-default">3</a></li>-->
+            <!--<li><a href="#" class="btn btn-raised ripple-effect btn-default">4</a></li>-->
+            <!--<li><a href="#" class="btn btn-raised ripple-effect btn-default">5</a></li>-->
+            <!--<li><a href="#" aria-label="Next" class="btn btn-raised ripple-effect btn-default"><span aria-hidden="true">»</span></a></li>-->
+        <!--</ul>-->
+    <!--</nav>-->
+</div>
+

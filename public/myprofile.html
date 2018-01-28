@@ -1,0 +1,32 @@
+<div class="col-md-9 col-sm-12 col-xs-12 r-content" id="tohere">
+    <div class="row">
+        <div class="profile">
+            <h2>Hello, I am <span>{{user.name}}</span><br></h2>
+            <div class="sep2"></div>
+            <div class="personal-info col-md-8 no-padding">
+                <h4>Personal Info</h4>
+                <div class="sep2"></div>
+                <ul>
+                    <li class="infoitems">
+                        <div class="p-info"><em class="tag">name</em><span>{{user.name}}</span></div>
+                    </li>
+                    <li class="infoitems">
+                        <div class="p-info"><em class="tag">date of birth</em><span>{{user.dob}}</span></div>
+                    </li>
+                    <li class="infoitems">
+                        <div class="p-info"><em class="tag">e-mail</em><span>{{user.email}}</span></div>
+                    </li>
+                    <li class="infoitems">
+                        <div class="p-info"><em class="tag">address</em><span>{{user.address}}</span></div>
+                    </li>
+                    <li class="infoitems">
+                        <div class="p-info"><em class="tag">phone</em><span>{{user.phone}}</span></div>
+                    </li>
+                </ul>
+                <!--<div><button type="button" class="edit">edit</button></div>-->
+                <div><a ui-sref="app.profile.edit" class="col-xs-4 col-sm-4 button">Edit</a></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

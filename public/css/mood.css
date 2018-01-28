@@ -1,0 +1,250 @@
+/* Website-Container */
+
+.mood {
+    width: 100%;
+    height: calc(120vh - 0.005em);
+    overflow: hidden;
+    display: block;
+}
+
+.background-img {
+    opacity: 0.7;
+    position: absolute;
+    height: 123vh;
+    width: auto;
+    margin-top: -20px;
+    margin-left: -15px;
+    background-color: #000;
+}
+
+.orbit {
+    padding-top: 30px;
+}
+
+
+/* Style der Satelliten */
+
+.orbit li {
+    width: 100px;
+    height: 100px;
+    border-radius: 60px;
+    background: #fff;
+    text-align: center;
+    line-height: 60px;
+}
+
+ul.orbit.orbitlistJS li {
+    transition: all 0.2s linear;
+}
+
+ul.orbit.orbitlistJS li:hover {
+    z-index: 60;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform: scale(1.2);
+}
+
+.orbit li.orbitlistJS-trace {
+    z-index: 40;
+    box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.2), 0 10px 26px 0 rgba(0, 0, 0, 0.19);
+}
+
+.orbit li.orbitlistJS-active {
+    z-index: 50;
+}
+
+.orbitlistJS .orbitlistJS-orbit-1 {
+    width: 120px;
+    height: 120px;
+    z-index: 10;
+}
+
+.orbitlistJS .orbitlistJS-orbit-2 {
+    width: 140px;
+    height: 140px;
+    z-index: 20;
+}
+
+
+/*hover effect */
+
+.image {
+    border-radius: 70%;
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+li:hover .image {
+    opacity: 0.3;
+}
+
+li:hover .middle {
+    opacity: 1;
+}
+
+.text {
+    color: black;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 16px 32px;
+}
+
+
+/*******************************
+
+*  NAVIGATION
+
+* *******************************/
+
+a {
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s;
+    color: #7FCFC2;
+}
+
+
+/*a:hover,
+a:focus {
+  color: #7FCFC2;
+}*/
+
+h5 {
+    font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+
+/*******************************
+
+*  NAVIGATION
+
+* *******************************/
+
+.navbar-default {
+    position: relative;
+    background-color: #7FCFC2;
+    /*background-color: #0A374A;*/
+    border-color: rgba(34, 34, 34, 0.05);
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s;
+    font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+.navbar-default .navbar-header .navbar-brand {
+    font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+    font-weight: 200;
+    letter-spacing: 1px;
+    color: #0A374A;
+}
+
+.navbar-default .navbar-header .navbar-brand:hover,
+.navbar-default .navbar-header .navbar-brand:focus {
+    /*color: #fcbd20; orange mouse on the brand*/
+    color: #0A374A;
+}
+
+.navbar-default .navbar-header .navbar-toggle {
+    font-size: 12px;
+    color: #0A374A;
+    padding: 8px 10px;
+}
+
+.navbar-default .nav > li > a {
+    font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+}
+
+.navbar-default .navbar-right .user-name {
+    font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+.navbar-default .nav > li > a,
+.navbar-default .nav > li > a:focus {
+    color: white;
+    /*color: #222222;*/
+}
+
+.navbar-default .nav > li > a:hover,
+.navbar-default .nav > li > a:focus:hover {
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .navbar-default {
+        /*background-color: transparent;*/
+        background-color: #7FCFC2;
+        border-color: transparent;
+    }
+    .navbar-default .navbar-header .navbar-brand {
+        color: #0A374A;
+    }
+    .navbar-default .navbar-header .navbar-brand:hover,
+    .navbar-default .navbar-header .navbar-brand:focus {
+        color: white;
+    }
+    .navbar-default .nav > li > a,
+    .navbar-default .nav > li > a:focus {
+        color: /*rgba(255, 255, 255, 0.7)*/
+        #0A374A;
+    }
+    .navbar-default .nav > li > a:hover,
+    .navbar-default .nav > li > a:focus:hover {
+        color: white;
+    }
+}
+
+.navbar-default .btn {
+    font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 300px;
+}
+
+footer {
+    margin: 0px auto;
+    padding: 35px 90px;
+    height: auto;
+    color: #ffffff;
+    background-color: #14374C;
+    background-size: cover;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: auto;
+}
+
+footer .btn:hover {
+    color: white;
+    text-align: right;
+}
+
+@media (max-width: 992px) {
+    footer {
+        padding: 35px 30px;
+    }
+}
+
+body {
+    webkit-tap-highlight-color: #222222;
+}

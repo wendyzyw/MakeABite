@@ -1,0 +1,172 @@
+<!-- Page -->
+<section class="page">
+    <div class="container">
+        <div class="page-wrap" cg-busy="{promise:myPromise,message:'Loading Your Dishes',templateUrl:'custom-template.html'}">
+            <div class="row" ng-controller="ResultsController">
+                <!-- Left sidebar -->
+                <div class="col-sm-8">
+					<div class="widget card pad-all">
+                        <hr class="mBtm-50 mTop-30" data-symbol="Recent Search:">
+						<md-button class="md-raised" ng-repeat="query in queries | limitTo: 10" style="margin: 5px" ui-sref="app.search({q: query})">{{query}}</md-button>
+					</div>
+                    <div class="col-sm-8" ng-if="noDishesFound || !showDishes">
+                        <h3>{{noDishesMsg}} why not take a look at our <a ui-sref="app.search({q:'', sort: 'rating', limit: 100})"><b>top dishes</b></a>? </h3>
+                        <img src="notfound.gif" style="height: 50%; width: 50%"></img>
+                    </div>
+                    <div class="tab-pane fade active in" id="results" ng-if="showDishes">
+                        <!--<div class="card card-horizontal" ng-repeat="dish in dishes | orderBy: propertyName: reverse">-->
+                        <div class="card card-horizontal" dir-paginate="dish in filteredDishes | orderBy: propertyName: reverse | filter: mealtype | itemsPerPage: pageSize" current-page="currentPage">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="card-image bg-image" style="background: url({{dish.image}}) center center / cover no-repeat;">
+                                        <span class="card-title">{{dish.name}}</span>
+                                        <span class="card-price">{{dish.category}}</span>
+                                    </div>
+                                </div>
+                                <!-- /col 4 -->
+                                <div class="col-sm-8">
+                                    <div class="card-content">
+                                        <div class="listingInfo">
+                                            <div class="propertyStats">
+                                                <p class="priceText">{{dish.price | currency}}</p>
+                                            </div>
+                                            <div class="vcard">
+                                                <h2><a ui-sref="app.dishdetail({id: dish._id})" class="name">{{dish.name}}</a></h2>
+                                                <p class="listingLocation">{{dish.description | limitTo:bound}}{{dish.description.length>bound?' ...':''}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-action">
+                                            <p><i class="fa fa-map-o"></i>{{dish.restaurant.location.address}}</p>
+                                            <div class="pull-right">
+                                                <!--<a target="new_blank" ng-click="saveDish()"><i class="fa fa-heart-o"></i><span>Save {{dish.likes}}</span></a>-->
+                                                <span>Rating: </span>
+                                                <span ng-show="dish.rating!='0.0'"> {{dish.rating}}</span>
+                                                <span ng-show="dish.rating=='0.0'"> No ratings</span>
+                                            </div>
+                                        </div>
+                                        <!-- end. Card actions -->
+                                    </div>
+                                </div>
+                                <!-- /col 8 -->
+                            </div>
+                            <!-- /inner row -->
+                        </div>
+                        <div class="row" ng-controller="PagerController">
+                            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right sidebar -->
+                <aside class="col-sm-4">
+                    <div class="widget card pad-all">
+                        <hr class="mBtm-50 mTop-30" data-symbol="Sort by">
+                        <md-button class="md-raised orderby" ng-click="sortBy('price')">Price <i>(Low to high)</i> </md-button><br>
+                        <md-button class="md-raised orderby" ng-click="sortBy('pricerev')">Price <i>(High to low)</i> </md-button><br>
+                        <md-button class="md-raised orderby" ng-click="sortBy('likes')">Rating <i>(Low to high)</i> </md-button><br>
+                        <md-button class="md-raised orderby" ng-click="sortBy('likesrev')">Rating <i>(High to low)</i> </md-button><br>
+                        <md-button class="md-raised orderby" ng-click="sortBy('time')">Recently Added </md-button><br>
+                    </div>
+                    <!-- Filters -->
+                    <div class="card pad-all">
+                        <hr class="mBtm-50 mTop-30" data-symbol="Meal Filter">
+                        <form action="#" method="get">
+                            <!-- Meal options -->
+                            <div class="row">
+                                <div class="row" style="margin-left: 5px; margin-right: 5px">
+                                    <md-radio-group ng-model="mealoptions.is_spicy">
+                                        <p class="col-md-6">Spicy?</p>
+                                        <md-radio-button value="yes" class="md-primary col-md-3">Y</md-radio-button>
+                                        <md-radio-button value="no" class="col-md-3">N</md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                                <div class="row" style="margin-left: 5px; margin-right: 5px">
+                                    <md-radio-group ng-model="mealoptions.is_vegan">
+                                        <p class="col-md-6">Vegan?</p>
+                                        <md-radio-button value="yes" class="md-primary col-md-3">Y</md-radio-button>
+                                        <md-radio-button value="no" class="col-md-3">N</md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                                <div class="row" style="margin-left: 5px; margin-right: 5px">
+                                    <md-radio-group ng-model="mealoptions.is_gf">
+                                        <p class="col-md-6">Gluten Free?</p>
+                                        <md-radio-button value="yes" class="md-primary col-md-3">Y</md-radio-button>
+                                        <md-radio-button value="no" class="col-md-3">N</md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                                <div class="row" style="margin-left: 5px; margin-right: 5px">
+                                    <md-radio-group ng-model="mealoptions.is_nf">
+                                        <p class="col-md-6">Nuts Free?</p>
+                                        <md-radio-button value="yes" class="md-primary col-md-3">Y</md-radio-button>
+                                        <md-radio-button value="no" class="col-md-3">N</md-radio-button>
+                                    </md-radio-group>
+                                </div>
+                            </div>
+                            <!-- Price options -->
+                            <div class="form-group">
+                                <label for="amount">Price range:<span style="color: #ff9933"> ${{slider.minValue}} - ${{slider.maxValue}}</span></label>
+                                <rzslider rz-slider-model="slider.minValue"
+										  rz-slider-high="slider.maxValue"
+										  rz-slider-options="slider.options"></rzslider>
+                            </div>
+
+                            <!-- Restaurant options -->
+                            <hr class="mBtm-50 mTop-30" data-symbol="Restaurant Amenities">
+                            <form>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="" ng-model="restoptions.outdoorseats">Outdoor Seating</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="" ng-model="restoptions.smokingarea">Smoking Area</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="" ng-model="restoptions.kids">Kids Friendly</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="" ng-model="restoptions.wheelchair">Wheelchair Accessible</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="" ng-model="restoptions.delivery">Home Delivery</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="" ng-model="restoptions.takeaway">Takeaway</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="" ng-model="restoptions.byo">BYO</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="" ng-model="restoptions.byow">BYOW</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="" ng-model="restoptions.wifi">Wifi</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="" ng-model="restoptions.fullbar">Full Bar Available</label>
+                                </div>
+                            </form>
+                            <p>
+                                <button id="search" data-style="slide-left" ng-click="filterDishes()" class="btn btn-lg btn-raised ripple-effect btn-danger btn-block legitRipple" type="submit" style="color: white"><b>Search</b></button>
+                            </p>
+                        </form>
+                    </div>
+                    <!-- Trending Dishes -->
+                    <div class="widget">
+                        <hr class="mBtm-50 mTop-30" data-symbol="Trending Meals">
+                        <a class="panel media sidebarProperty" ng-repeat="dish in trendings">
+                            <div class="media-left media-middle bg-primary pad-no">
+                                <img ng-src={{dish.image}} width="120" height="100" alt="">
+                            </div>
+                            <div class="media-body media-middle pad-10" ui-sref="app.dishdetail({id: dish._id})" >
+                                <p class="mar-no font-sm">{{dish.price | currency}}</p>
+                                <p class="heading">{{dish.name}}</p>
+                                <p class="mar-no"><i class="fa fa-heart-o"></i>{{dish.likes}}</p>
+                            </div>
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of page -->
+		
+<script src="js/filter.js" type="text/javascript"></script>

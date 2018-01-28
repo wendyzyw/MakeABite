@@ -1,0 +1,41 @@
+
+<div class="container-fluid" ng-controller='moodMealController' style="min-height: 2100px; overflow: auto">
+  <div class="features">
+
+	<div class="row page-wrap" class="rmg" style="margin-left: 50px;margin-right: 50px">
+	  <!--
+	  <div class="col-md-3">
+		<h5>Triggering layout</h5>
+		A layout can be triggered at any time, for example when resizing a card. A callback will be fired once the animations have completed.
+	  </div>
+	-->
+	  <div class="col-md-5">
+		<h5>Filtering</h5>
+		<div class="btn-group" role="group">
+			<button class="btn btn-default" ng-class="{active: isTabActive('home')}" ng-click="filter('home')">Show all</button>
+			<label><select ng-model="selectedCuisine" class="btn btn-default" ng-style="myStyle" ng-class="{active: isTabActive(selectedCuisine)}" ng-click="filter(selectedCuisine)" ng-options="x for x in cuisines"><option value="">-- cuisines --</option></select></label>
+			<label><select ng-model="selectedCategory" class="btn btn-default" ng-style="myStyle" ng-class="{active: isTabActive(selectedCategory)}" ng-click="filter(selectedCategory)" ng-options="x for x in categories"><option value="">-- category --</option></select></label>
+		</div>
+	  </div>
+	  <div class="col-md-4">
+		<h5>Sorting</h5>
+		<div class="btn-group" role="group">
+			<button class="btn btn-default"ng-class="{active: isRankerActive('rating')}"   ng-click="orderBy('rating')">Rating</button>
+			<button class="btn btn-default" ng-class="{active: isRankerActive('data.price')}"  ng-click="orderBy('data.price')">Price</button>
+		</div>
+	  </div>
+	  <div class="col-md-3">
+		<h5>Adding and removing dishes</h5>
+		<div class="btn-group" role="group">
+		  <button class="btn btn-default" ng-click="addCard()">
+			<span class="glyphicon glyphicon-plus"></span>
+		  </button>          
+		  <button class="btn btn-default" ng-click="removeFirstCard()">
+			<span class="glyphicon glyphicon-minus"></span>
+		  </button>          
+		</div>
+	  </div>
+	</div>
+  </div>
+  <div dynamic-layout items="cards" filters="filters" rankers="rankers"  cg-busy="{promise:myPromise,message:'Loading Your Dishes',templateUrl:'loading-template.html'}"></div>
+</div>

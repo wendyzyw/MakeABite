@@ -1,0 +1,357 @@
+<div class="col-md-9 col-sm-12 col-xs-12 r-content" id="tohere">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div id="popUp" class='modal popUp'>
+            <div class="modal-content">
+                <h5>Preference Saved</h5>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-sm-6 col-xs-12">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <!--<h3>{{preference.cuision}}</h3>-->
+                    <h3>{{spicy}}</h3>
+                    <p></p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pizza"></i>
+                </div>
+                <a class="small-box-footer" id="spicy_btn">Change preference <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+            <div id="spicyModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Do you like spicy food?</h2>
+                    </div>
+                    <div class="modal-body">
+                        <select class="form-control" id="selectSpicy" ng-model="user.spicy">
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button href= "javascript:history.back()" ng-click="savePerfer()" class="btn btn-default save">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-6 col-sm-6 col-xs-12">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>{{vegan}}</h3>
+                    <p></p>
+                </div>
+                <div class="icon">
+                    <i class="icon ion-wineglass"></i>
+                </div>
+                <a id="vegan_btn" class="small-box-footer">Change preference <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+            <div id="veganModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Are you vegan?</h2>
+                    </div>
+                    <div class="modal-body">
+                       <select class="form-control" id="selectVegan" ng-model="user.vegan">
+                        <!-- <select class="form-control" id="selectCuisine"> -->
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button href= "javascript:history.back()" ng-click="savePerfer()" class="btn btn-default save">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-6 col-sm-6 col-xs-12">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>{{gluten}}</h3>
+                    <p></p>
+                </div>
+                <div class="icon">
+                    <i class="icon ion-beer"></i>
+                </div>
+                <a id="gluten_btn" class="small-box-footer">Change preference <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+            <div id="glutenModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Do you need gluten free?</h2>
+                    </div>
+                    <div class="modal-body">
+                        <select class="form-control" id="selectGluten" ng-model="user.gluten">
+                        <!-- <select class="form-control" id="selectCuisine"> -->
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button href= "javascript:history.back()" ng-click="savePerfer()" class="btn btn-default save">Save</button>
+                        <!--<button class="save">Save</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-6 col-sm-6 col-xs-12">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>{{nuts}}</h3>
+                    <p></p>
+                </div>
+                <div class="icon">
+                    <i class="icon ion-icecream"></i>
+                </div>
+                <a id="nuts_btn" class="small-box-footer">Change preference <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+            <div id="nutsModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Nuts free?</h2>
+                    </div>
+                    <div class="modal-body">
+                        <select class="form-control" id="selectNuts" ng-model="user.nuts">
+                        <!-- <select class="form-control" id="selectCuisine"> -->
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button href= "javascript:history.back()" ng-click="savePerfer()" class="btn btn-default save">Save</button>
+                        <!--<button class="save">Save</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-6 col-sm-6 col-xs-12">
+            <!-- small box -->
+            <div class="small-box bg-maroon">
+                <div class="inner">
+                    <h3>{{allergies}}</h3>
+                    <p></p>
+                </div>
+                <div class="icon">
+                    <i class="icon ion-spoon"></i>
+                </div>
+                <a id="allergies_btn" class="small-box-footer">Change preference <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+            <div id="allergiesModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Please choose your allergies</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <multiselect ng-model="user.allergies" options="allergyoptions" words="allergelabel" selection-limit="5"></multiselect>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button href= "javascript:history.back()" ng-click="savePerfer()" class="btn btn-default save">Save</button>
+                        <!--<button class="save">Save</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-6 col-sm-6 col-xs-12">
+            <!-- small box -->
+            <div class="small-box bg-teal">
+                <div class="inner">
+                    <h3>{{hate}}</h3>
+                    <p></p>
+                </div>
+                <div class="icon">
+                    <i class="icon ion-soup-can"></i>
+                </div>
+                <a id="hate_btn" class="small-box-footer">Change preference <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div id="hateModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Anything you hate to eat?</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <multiselect ng-model="user.hate" options="hateoptions" words="hatelabel" selection-limit="6"></multiselect>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button href= "javascript:history.back()" ng-click="savePerfer()" class="btn btn-default save">Save</button>
+                    <!--<button class="save">Save</button>-->
+                </div>
+            </div>
+        </div>
+        <!-- ./col -->
+    </div>
+    <!-- /.row -->
+    <!-- </div> -->
+</div>
+<script>
+    // var span = document.getElementsByClassName("close")[0];
+
+    // spicy modal
+    var spicymodal = document.getElementById('spicyModal');
+    var spicybtn = document.getElementById("spicy_btn");
+    var spicySave = spicymodal.getElementsByClassName('save')[0];
+    var spicyClose = spicymodal.getElementsByClassName("close")[0];
+
+    // vegan modal
+    var veganmodal = document.getElementById('veganModal');
+    var veganbtn = document.getElementById("vegan_btn");
+    var veganSave = veganmodal.getElementsByClassName('save')[0];
+    var veganClose = veganmodal.getElementsByClassName("close")[0];
+    //var e = document.getElementById("selectMeat");
+
+    //gluten modal
+    var glutenmodal = document.getElementById('glutenModal');
+    var glutenbtn = document.getElementById("gluten_btn");
+    var glutenSave = glutenmodal.getElementsByClassName('save')[0];
+    var glutenClose = glutenmodal.getElementsByClassName("close")[0];
+
+    //nuts modal
+    var nutsmodal = document.getElementById('nutsModal');
+    var nutsbtn = document.getElementById("nuts_btn");
+    var nutsSave = nutsmodal.getElementsByClassName('save')[0];
+    var nutsClose = nutsmodal.getElementsByClassName("close")[0];
+
+    //allergies modal
+    var allergiesmodal = document.getElementById('allergiesModal');
+    var allergiesbtn = document.getElementById("allergies_btn");
+    var allergiesSave = allergiesmodal.getElementsByClassName('save')[0];
+    var allergiesClose = allergiesmodal.getElementsByClassName("close")[0];
+
+    //hatemodal
+    var hatemodal = document.getElementById('hateModal');
+    var hatebtn = document.getElementById("hate_btn");
+    var hateSave = hatemodal.getElementsByClassName('save')[0];
+    var hateClose = hatemodal.getElementsByClassName("close")[0];
+
+    var pop = document.getElementById('popUp');
+
+    // spicy modal
+    // When the user clicks on the button, open the modal
+    spicybtn.onclick = function() {
+        spicymodal.style.display = "block";
+    }
+    spicyClose.onclick = function() {
+        spicymodal.style.display = "none";
+    }
+    spicySave.onclick = function() {
+        spicymodal.style.display = "none";
+        pop.style.display = "block";
+        setTimeout(function(){
+            pop.style.display = "none";
+        },600);
+    }
+
+    // Meat modal
+    veganbtn.onclick = function() {
+        veganmodal.style.display = "block";
+    }
+    veganClose.onclick = function() {
+        veganmodal.style.display = "none";
+    }
+    veganSave.onclick = function() {
+//    user.meat = e.options[e.selectedIndex].value;
+        veganmodal.style.display = "none";
+        pop.style.display = "block";
+        setTimeout(function(){
+            pop.style.display = "none";
+        },600);
+    }
+
+    // veg modal
+    glutenbtn.onclick = function() {
+        glutenmodal.style.display = "block";
+    }
+    glutenClose.onclick = function() {
+        glutenmodal.style.display = "none";
+    }
+    glutenSave.onclick = function() {
+        glutenmodal.style.display = "none";
+        pop.style.display = "block";
+        setTimeout(function(){
+            pop.style.display = "none";
+        },600);
+    }
+
+    // nuts modal
+    nutsbtn.onclick = function() {
+        nutsmodal.style.display = "block";
+    }
+    nutsClose.onclick = function() {
+        nutsmodal.style.display = "none";
+    }
+    nutsSave.onclick = function() {
+        nutsmodal.style.display = "none";
+        pop.style.display = "block";
+        setTimeout(function(){
+            pop.style.display = "none";
+        },600);
+    }
+
+    // allergies modal
+    allergiesbtn.onclick = function() {
+        allergiesmodal.style.display = "block";
+    }
+    allergiesClose.onclick = function() {
+        allergiesmodal.style.display = "none";
+    }
+    allergiesSave.onclick = function() {
+        allergiesmodal.style.display = "none";
+        pop.style.display = "block";
+        setTimeout(function(){
+            pop.style.display = "none";
+        },600);
+    }
+
+    // hate modal
+    hatebtn.onclick = function() {
+        hatemodal.style.display = "block";
+    }
+    hateClose.onclick = function() {
+        hatemodal.style.display = "none";
+    }
+    hateSave.onclick = function() {
+        hatemodal.style.display = "none";
+        pop.style.display = "block";
+        setTimeout(function(){
+            pop.style.display = "none";
+        },600);
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == spicymodal || event.target == veganmodal || event.target == glutenmodal || event.target == nutsmodal || event.target == allergiesmodal || event.target == hatemodal) {
+            spicymodal.style.display = "none";
+            veganmodal.style.display = "none";
+            glutenmodal.style.display = "none";
+            nutsmodal.style.display = "none";
+            dairymodal.style.display = "none";
+            hatemodal.style.display = "none";
+        }
+    }
+</script>
