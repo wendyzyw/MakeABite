@@ -28,7 +28,7 @@ angular.module('makeABiteApp',['ui.router','ngRoute','ngResource','ngMaterial','
                 url : 'meal/:id',
                 views : {
                     'content@' : {
-                        templateUrl : '/public/meal.html',
+                        templateUrl : '../meal.html',
                         controller : 'DishDetailController'
                     }
                 }
@@ -37,7 +37,7 @@ angular.module('makeABiteApp',['ui.router','ngRoute','ngResource','ngMaterial','
                 url : 'rmg',
                 views : {
                     'content@' : {
-                        templateUrl : '/public/rmg.html',
+                        templateUrl : '../rmg.html',
                         controller : 'RmgController'
                     }
                 }
@@ -46,7 +46,7 @@ angular.module('makeABiteApp',['ui.router','ngRoute','ngResource','ngMaterial','
                 url : 'mood',
                 views : {
                     'content@' : {
-                        templateUrl : '/public/mood.html',
+                        templateUrl : '../mood.html',
                         controller : 'ResultsController'
                     }
                 }
@@ -55,7 +55,7 @@ angular.module('makeABiteApp',['ui.router','ngRoute','ngResource','ngMaterial','
                 url : 'map',
                 views : {
                     'content@' : {
-                        templateUrl : '/public/map.html',
+                        templateUrl : '../map.html',
                         controller : 'MapController',
                         resolve:{
                             geoLocation:['$q',function($q){
@@ -88,11 +88,11 @@ angular.module('makeABiteApp',['ui.router','ngRoute','ngResource','ngMaterial','
                 url : 'myprofile',
                 views : {
                     'content@' : {
-                        templateUrl : '/public/profileindex.html',
+                        templateUrl : '../profileindex.html',
                         controller : 'UserController'
                     },
                     'profilecontent@app.profile' : {
-                        templateUrl : '/public/myprofile.html',
+                        templateUrl : '../myprofile.html',
                         controller : 'UserController'
                     }
                 }
@@ -102,7 +102,7 @@ angular.module('makeABiteApp',['ui.router','ngRoute','ngResource','ngMaterial','
                 url : '/preference',
                 views : {
                     'profilecontent@app.profile' : {
-                        templateUrl : '/public/mypreference.html',
+                        templateUrl : '../mypreference.html',
                         controller : 'UserController'
                     }
                 }
@@ -112,7 +112,7 @@ angular.module('makeABiteApp',['ui.router','ngRoute','ngResource','ngMaterial','
                 url : '/favourites',
                 views : {
                     'profilecontent@app.profile' : {
-                        templateUrl : '/public/myfavourites.html',
+                        templateUrl : '../myfavourites.html',
                         controller : 'UserController'
                     }
                 }
@@ -129,7 +129,7 @@ angular.module('makeABiteApp',['ui.router','ngRoute','ngResource','ngMaterial','
                 url : '/edit',
                 views : {
                     'content@' : {
-                        templateUrl : '/public/editmyprofile.html',
+                        templateUrl : '../editmyprofile.html',
                         controller : 'UserController'
                     }
                 }
@@ -139,7 +139,7 @@ angular.module('makeABiteApp',['ui.router','ngRoute','ngResource','ngMaterial','
 				url : 'mood/:id',
 				views : {
                     'content@' : {
-                        templateUrl : '/public/moodmeal.html',
+                        templateUrl : '../moodmeal.html',
                         controller : 'moodMealController'
                     }
                 }
@@ -184,7 +184,7 @@ angular.module('makeABiteApp',['ui.router','ngRoute','ngResource','ngMaterial','
                 },
                 views : {
                     'content@' : {
-                        templateUrl : '/public/results.html',
+                        templateUrl : '../results.html',
                         controller : 'ResultsController'
                     }
                 }
