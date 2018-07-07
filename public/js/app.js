@@ -12,14 +12,14 @@ angular.module('makeABiteApp',['ui.router','ngRoute','ngResource','ngMaterial','
                 url : '/',
                 views : {
                     'header' : {
-                        templateUrl : '/public/header.html'
+                        templateUrl : '../header.html'
                     },
                     'content' : {
-                        templateUrl : '/public/home.html',
+                        templateUrl : '../home.html',
                         controller : 'SearchController'
                     },
                     'footer' : {
-                        templateUrl : '/public/footer.html'
+                        templateUrl : '../footer.html'
                     }
                 }
             })
