@@ -487,6 +487,7 @@ angular.module('makeABiteApp')
         $scope.myPromise = resultsFactory.getRandomDishes().query()
             .$promise.then(
                 function(response){
+                    console.log(response);
                     $scope.getdishes = response;
                     $scope.dishes = [];
                     for (var j=0; j<9; j++){

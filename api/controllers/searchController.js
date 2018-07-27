@@ -201,7 +201,7 @@ var RqueryBuilder = function(query){
 var randomsearchMeals = function(req,res){
     var rand = req.params.n;
     Meal
-        .aggregate({$sample:{size:parseInt(rand)}})
+        .aggregate([{$sample:{size:parseInt(rand)}}])
         .exec(function(err,meal){
             if(!err){
 				Meal.populate(meal, { path: 'restaurant'}, function (err, meals) {
