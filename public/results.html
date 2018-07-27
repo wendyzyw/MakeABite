@@ -11,7 +11,7 @@
 					</div>
                     <div class="col-sm-8" ng-if="noDishesFound || !showDishes">
                         <h3>{{noDishesMsg}} why not take a look at our <a ui-sref="app.search({q:'', sort: 'rating', limit: 100})"><b>top dishes</b></a>? </h3>
-                        <img src="notfound.gif" style="height: 50%; width: 50%"></img>
+                        <img src="img/notfound.gif" style="height: 50%; width: 50%"></img>
                     </div>
                     <div class="tab-pane fade active in" id="results" ng-if="showDishes">
                         <!--<div class="card card-horizontal" ng-repeat="dish in dishes | orderBy: propertyName: reverse">-->

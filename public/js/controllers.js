@@ -310,23 +310,23 @@ angular.module('makeABiteApp')
         };
 
         $scope.cookingoptions = ['Baked', 'Deep-fried', 'Grilled', 'Steamed', 'Stewed', 'Stir-fried', 'Roasted'];
-        $scope.cookinglabel = "select your favourite cooking methods";
+        $scope.cookinglabel = "Favourite cooking methods";
         $scope.cookingbtn = "pink";
 
         $scope.cuisineoptions = ['Australian', 'Indian', 'Greek', 'Mexican', 'Turkish', 'Middle Eastern', 'Mediterranean',  'American', 'Asian', 'Vietnamese', 'Thai', 'Chinese', 'Japanese', 'Korean', 'Italian', 'Tapas', 'Pizza', 'Cafe', 'Desserts', 'Bar Food', 'Kebab', 'Seafood', 'BBQ', 'Burger', 'Healthy Food'];
-        $scope.cuisinelabel = "select your favourite cuisines",
+        $scope.cuisinelabel = "Favourite cuisines",
 
             $scope.meatoptions = ['Beef', 'Lamb', 'Pork', 'Chicken', 'Bacon/Ham', 'Fish', 'Prawn', 'Crab', 'Squid', 'No meat at all'];
-        $scope.meatlabel = "select your favourite meat";
+        $scope.meatlabel = "Favourite meat";
 
         $scope.vegieoptions = ['Tomato', 'Carrot', 'Potato', 'Broccoli', 'Cauliflower', 'Celery', 'Mushroom', 'Onion', 'Capsicum', 'Avocado','Eggplant'];
-        $scope.vegielabel = "select your favourite vegetables";
+        $scope.vegielabel = "Favourite vegetables";
 
         $scope.typeoptions = ['Cafe', 'Bar', 'Desert Parlour', 'Casual Dining', 'Fast Food', 'Delivery'];
-        $scope.typelabel = "select your meal type";
+        $scope.typelabel = "Favourite meal type";
 
         $scope.sauceoptions = ['BBQ', 'Mayo', 'Spicy', 'Sweet Chilli', 'Curry', 'Sour Cream', 'Teriyaki'];
-        $scope.saucelabel = "select your favourite sauces";
+        $scope.saucelabel = "Favourite sauces";
 
         resultsFactory.set($scope.typeselection);
 
@@ -1047,7 +1047,7 @@ angular.module('makeABiteApp')
                     function(response){
                         if(response._id) {
                             console.log('user created');
-                            $scope.signupmessages = "- User creation succesful!";
+                            $scope.signupmessages = "- User creation successful!";
                         }
                         else if (response.errors) {
                             console.log('errors');
